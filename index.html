@@ -16,44 +16,49 @@
       --red: #ff4b4b;
       --yellow: #ffd86b;
       --green: #4caf50;
-      --shadow-soft: 0 8px 20px rgba(0, 0, 0, 0.05);
-      --radius-card: 16px;
+      --shadow-soft: 0 10px 24px rgba(0, 0, 0, 0.06);
+      --radius-card: 18px;
       --radius-pill: 999px;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
-        "Helvetica Neue", Arial, sans-serif;
-      background: #e5e5ea;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Rounded",
+        "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+      background: #f3eee4;
       color: var(--text-main);
       display: flex;
       justify-content: center;
-      align-items: center;
+      align-items: flex-start;
       min-height: 100vh;
-      padding: 24px 8px;
+      padding: 28px 16px;
+      font-size: 18px;
     }
 
     .phone-frame {
       width: 100%;
-      max-width: 420px;
-      height: min(800px, 92vh);
-      background: linear-gradient(145deg, #fefcf8, #f9f2e8);
-      border-radius: 40px;
-      padding: 16px;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+      max-width: 1200px;
+      height: calc(100vh - 40px);
+      background: #f9f3e7;
+      border-radius: 24px;
+      padding: 18px;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.2);
       position: relative;
       overflow: hidden;
-      border: 1px solid rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(0, 0, 0, 0.04);
     }
 
     .inner-screen {
       width: 100%;
       height: 100%;
       background: var(--bg-main);
-      border-radius: 28px;
-      padding: 12px 12px 16px;
+      border-radius: 18px;
+      padding: 18px 20px 20px;
       display: flex;
       flex-direction: column;
       position: relative;
@@ -64,44 +69,63 @@
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
-      padding: 10px 6px 12px;
+      padding: 4px 2px 12px;
     }
 
     .title {
-      font-weight: 700;
-      font-size: 20px;
+      font-weight: 800;
+      font-size: 28px;
+      letter-spacing: 0.03em;
     }
 
     .subtitle {
-      font-size: 12px;
+      font-size: 16px;
       color: var(--text-muted);
+      margin-top: 2px;
     }
 
     .code-tag {
-      margin-top: 5px;
-      font-size: 10px;
+      margin-top: 6px;
+      font-size: 13px;
       color: #a18c64;
-      padding: 2px 6px;
+      padding: 4px 10px;
       border-radius: 999px;
       border: 1px dashed #decba0;
       display: inline-block;
       cursor: pointer;
+      background: #fffaf0;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 10px 4px 12px;
+      gap: 10px;
+    }
+
+    .main-header {
+      margin-top: 4px;
+    }
+
+    .main-header .tabs {
+      flex: 1;
     }
 
     .tabs {
       background: #f1e7d7;
       border-radius: var(--radius-pill);
-      padding: 4px;
+      padding: 6px;
       display: flex;
-      gap: 4px;
-      margin-bottom: 10px;
+      gap: 6px;
+      min-width: 220px;
     }
 
     .tab {
       flex: 1;
       text-align: center;
-      font-size: 13px;
-      padding: 6px 0;
+      font-size: 20px;
+      padding: 10px 18px;
       border-radius: var(--radius-pill);
       cursor: pointer;
       user-select: none;
@@ -111,94 +135,99 @@
 
     .tab.active {
       background: #fff7e4;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.12);
       color: #4a3a22;
       font-weight: 600;
       transform: translateY(-1px);
     }
 
+    .header-actions {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
     .content {
       flex: 1;
       overflow-y: auto;
-      padding: 4px 2px 0;
+      padding: 10px 6px 0;
       scrollbar-width: thin;
       scrollbar-color: #d4c6aa transparent;
     }
 
-    .content::-webkit-scrollbar { width: 4px; }
+    .content::-webkit-scrollbar {
+      width: 8px;
+    }
     .content::-webkit-scrollbar-thumb {
       background: #d4c6aa;
       border-radius: 999px;
     }
 
-    .section-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin: 4px 4px 8px;
-      gap: 8px;
-    }
-
     .section-title {
-      font-size: 15px;
+      font-size: 20px;
       font-weight: 600;
       color: #4a3a22;
     }
 
     .section-subtitle {
-      font-size: 11px;
+      font-size: 15px;
       color: var(--text-muted);
-    }
-
-    .header-actions {
-      display: flex;
-      gap: 4px;
-      align-items: center;
     }
 
     .btn-primary {
       background: #f1c24b;
       border-radius: var(--radius-pill);
       border: none;
-      padding: 6px 12px;
-      font-size: 14px;
+      padding: 8px 18px;
+      font-size: 18px;
       font-weight: 600;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-width: 32px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+      min-width: 40px;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
     }
 
     .btn-primary:active {
       transform: translateY(1px);
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.18);
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.18);
+    }
+
+    #btn-add-entry {
+      width: 56px;
+      height: 44px;
+      border-radius: 999px;
+      font-size: 26px;
+      padding: 0;
     }
 
     .btn-ghost {
       background: transparent;
       border-radius: var(--radius-pill);
       border: 1px solid #e4d3b5;
-      padding: 5px 10px;
-      font-size: 11px;
+      padding: 7px 12px;
+      font-size: 14px;
       cursor: pointer;
     }
 
     .btn-icon {
-      width: 32px;
-      height: 28px;
+      width: 40px;
+      height: 32px;
       border-radius: 999px;
       border: 1px solid #ddd0b7;
       background: #faf3e1;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      color: #6b5a38;
       cursor: pointer;
+      padding: 0;
+    }
+
+    .btn-icon svg {
+      width: 20px;
+      height: 20px;
+      display: block;
     }
 
     .btn-icon:active {
@@ -207,8 +236,8 @@
     }
 
     .btn-small {
-      font-size: 10px;
-      padding: 3px 8px;
+      font-size: 13px;
+      padding: 4px 9px;
       border-radius: 999px;
       border: 1px solid #e4d3b5;
       background: transparent;
@@ -221,14 +250,14 @@
       opacity: 0.8;
       display: inline-flex;
       align-items: center;
-      gap: 3px;
+      gap: 4px;
     }
 
     .card {
       background: var(--bg-card);
       border-radius: var(--radius-card);
-      padding: 10px 12px;
-      margin-bottom: 8px;
+      padding: 12px 14px;
+      margin-bottom: 10px;
       box-shadow: var(--shadow-soft);
       border: 1px solid #f0e3cd;
       cursor: pointer;
@@ -238,38 +267,29 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 4px;
+      margin-bottom: 6px;
     }
 
     .card-date {
-      font-size: 12px;
+      font-size: 17px;
       font-weight: 600;
       color: #6a5735;
     }
 
-    .card-time {
-      font-size: 11px;
-      color: var(--text-muted);
-    }
-
     .card-row {
-      font-size: 12px;
-      margin-top: 3px;
+      font-size: 16px;
+      margin-top: 4px;
       color: #3b3121;
     }
 
-    .field-label {
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: #b3a48b;
-      display: block;
-      margin-bottom: 1px;
+    .bullet-list {
+      margin-top: 4px;
+      margin-bottom: 0;
+      padding-left: 22px;
     }
 
-    .field-text {
-      font-size: 12px;
-      color: #3b3121;
+    .bullet-list li {
+      margin-bottom: 3px;
       white-space: pre-wrap;
     }
 
@@ -277,37 +297,46 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 2px 8px;
+      padding: 3px 10px;
       border-radius: var(--radius-pill);
-      font-size: 11px;
+      font-size: 14px;
       font-weight: 600;
       color: #fff;
-      min-width: 58px;
+      min-width: 70px;
     }
 
-    .pill-bad { background: var(--red); }
-    .pill-meh { background: #f2b400; }
-    .pill-good { background: var(--green); }
-    .pill-muted { background: #ccc; color: #333; }
+    .pill-bad {
+      background: var(--red);
+    }
+    .pill-meh {
+      background: #f2b400;
+    }
+    .pill-good {
+      background: var(--green);
+    }
+    .pill-muted {
+      background: #ccc;
+      color: #333;
+    }
 
     .calendar-wrapper {
       background: var(--bg-card);
       border-radius: var(--radius-card);
-      padding: 10px 10px 8px;
+      padding: 12px 12px 10px;
       box-shadow: var(--shadow-soft);
       border: 1px solid #f0e3cd;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
     .calendar-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
 
     .calendar-month {
-      font-size: 14px;
+      font-size: 18px;
       font-weight: 600;
       color: #4a3a22;
     }
@@ -315,19 +344,19 @@
     .calendar-grid {
       display: grid;
       grid-template-columns: repeat(7, 1fr);
-      gap: 4px;
-      font-size: 11px;
+      gap: 6px;
+      font-size: 13px;
       text-align: center;
     }
 
     .calendar-day-label {
-      font-size: 10px;
+      font-size: 12px;
       color: var(--text-muted);
       margin-bottom: 2px;
     }
 
     .calendar-cell {
-      height: 28px;
+      height: 32px;
       border-radius: 10px;
       display: flex;
       align-items: center;
@@ -337,6 +366,7 @@
       transition: transform 0.05s, box-shadow 0.1s, background 0.1s, color 0.1s;
       background: #f4ead8;
       color: #4a3a22;
+      font-size: 14px;
     }
 
     .calendar-cell.empty {
@@ -365,10 +395,10 @@
 
     .calendar-legend {
       display: flex;
-      gap: 6px;
+      gap: 8px;
       justify-content: flex-end;
-      margin-top: 6px;
-      font-size: 10px;
+      margin-top: 8px;
+      font-size: 12px;
       color: var(--text-muted);
     }
 
@@ -379,35 +409,35 @@
     }
 
     .legend-color {
-      width: 10px;
-      height: 10px;
+      width: 12px;
+      height: 12px;
       border-radius: 999px;
     }
 
     .day-details-title {
-      font-size: 13px;
+      font-size: 17px;
       font-weight: 600;
-      margin-bottom: 4px;
+      margin-bottom: 6px;
     }
 
     .day-details-empty {
-      font-size: 11px;
+      font-size: 14px;
       color: var(--text-muted);
-      padding: 4px 2px;
+      padding: 6px 2px;
     }
 
     #summary-section {
-      margin: 12px 4px 4px;
+      margin: 14px 4px 6px;
     }
 
     .summary-card {
       background: var(--bg-card);
       border-radius: var(--radius-card);
-      padding: 8px 10px;
-      margin-bottom: 6px;
+      padding: 10px 12px;
+      margin-bottom: 8px;
       border: 1px solid #f0e3cd;
       box-shadow: var(--shadow-soft);
-      font-size: 12px;
+      font-size: 14px;
     }
 
     .summary-title-line {
@@ -419,26 +449,28 @@
     }
 
     .summary-sub {
-      font-size: 11px;
+      font-size: 13px;
       color: var(--text-muted);
       margin-bottom: 2px;
     }
 
     .summary-row {
-      font-size: 11px;
+      font-size: 13px;
       margin-top: 2px;
     }
 
-    .ideas-wrapper { margin-top: 4px; }
+    .ideas-wrapper {
+      margin-top: 6px;
+    }
 
     .idea-form,
     .idea-card {
       background: var(--bg-card);
-      padding: 10px 10px 8px;
+      padding: 12px 12px 10px;
       border-radius: var(--radius-card);
       border: 1px solid #f0e3cd;
       box-shadow: var(--shadow-soft);
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
     .idea-card {
@@ -446,7 +478,7 @@
     }
 
     .idea-card:hover {
-      box-shadow: 0 10px 22px rgba(0,0,0,0.07);
+      box-shadow: 0 12px 26px rgba(0, 0, 0, 0.08);
     }
 
     .idea-form-row {
@@ -461,18 +493,20 @@
     .entry-input,
     .entry-textarea {
       width: 100%;
-      border-radius: 12px;
+      border-radius: 14px;
       border: 1px solid #e0d3bc;
-      padding: 7px 9px;
-      font-size: 12px;
+      padding: 8px 10px;
+      font-size: 15px;
       background: #fffdf6;
       outline: none;
       resize: vertical;
-      min-height: 28px;
+      min-height: 32px;
     }
 
     .idea-textarea,
-    .entry-textarea { min-height: 60px; }
+    .entry-textarea {
+      min-height: 70px;
+    }
 
     .idea-input:focus,
     .idea-textarea:focus,
@@ -484,65 +518,70 @@
     }
 
     .idea-title {
-      font-size: 13px;
+      font-size: 17px;
       font-weight: 600;
       margin-bottom: 4px;
       color: #3e311d;
     }
 
     .idea-body {
-      font-size: 12px;
+      font-size: 15px;
       color: #4c3d25;
       margin-bottom: 4px;
       white-space: pre-wrap;
     }
 
     .idea-meta {
-      font-size: 10px;
+      font-size: 12px;
       color: var(--text-muted);
     }
 
     .idea-form-actions {
       display: flex;
-      gap: 6px;
+      gap: 8px;
       align-items: center;
     }
 
-    .bottom-safe { height: 12px; }
+    .bottom-safe {
+      height: 14px;
+    }
 
     .entry-sheet-backdrop {
       position: absolute;
       inset: 0;
-      background: rgba(0, 0, 0, 0.15);
+      background: rgba(0, 0, 0, 0.16);
       display: none;
       align-items: flex-end;
       justify-content: center;
       z-index: 20;
     }
 
-    .entry-sheet-backdrop.active { display: flex; }
+    .entry-sheet-backdrop.active {
+      display: flex;
+    }
 
     .entry-sheet {
       width: 100%;
-      max-width: 420px;
+      max-width: 760px;
       background: var(--bg-main);
-      border-radius: 24px 24px 0 0;
-      padding: 10px 14px 14px;
-      box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.25);
+      border-radius: 20px 20px 0 0;
+      padding: 14px 18px 18px;
+      box-shadow: 0 -12px 32px rgba(0, 0, 0, 0.25);
       border-top: 1px solid #e4d6bf;
       max-height: 80%;
       overflow-y: auto;
+      font-size: 15px;
     }
 
     .entry-sheet-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 6px;
+      margin-bottom: 8px;
     }
 
     .entry-sheet-title {
-      font-size: 15px;
+      font-size: 18px;
       font-weight: 600;
     }
 
@@ -555,21 +594,21 @@
       display: flex;
       flex-direction: column;
       gap: 4px;
-      margin: 6px 0;
+      margin: 7px 0;
     }
 
     .pain-options {
       display: flex;
-      gap: 6px;
-      margin-top: 2px;
+      gap: 8px;
+      margin-top: 4px;
     }
 
     .pain-option {
       flex: 1;
       text-align: center;
-      padding: 6px 0;
+      padding: 8px 0;
       border-radius: var(--radius-pill);
-      font-size: 12px;
+      font-size: 15px;
       cursor: pointer;
       border: 1px solid transparent;
       user-select: none;
@@ -599,10 +638,10 @@
     }
 
     .empty-state {
-      font-size: 12px;
+      font-size: 15px;
       color: var(--text-muted);
-      padding: 8px 6px;
-      border-radius: 12px;
+      padding: 10px 8px;
+      border-radius: 14px;
       border: 1px dashed #e3d3b8;
       background: #fdf6e9;
       text-align: center;
@@ -621,76 +660,93 @@
     }
 
     .intro-card {
-      max-width: 420px;
+      max-width: 480px;
       width: 100%;
       background: #fffdf6;
-      border-radius: 24px;
-      padding: 20px 18px 18px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+      border-radius: 26px;
+      padding: 24px 22px 20px;
+      box-shadow: 0 22px 44px rgba(0, 0, 0, 0.22);
       border: 1px solid #f0e3cd;
+      position: relative;
+    }
+
+    .intro-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
     }
 
     .intro-title {
-      font-size: 22px;
-      font-weight: 700;
-      margin-bottom: 4px;
-      color: #3c2f1b;
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
 
     .intro-subtitle {
-      font-size: 13px;
+      font-size: 15px;
       color: #7a6a4c;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
+      margin-top: 4px;
     }
 
     .intro-bullets {
-      font-size: 12px;
+      font-size: 14px;
       color: #55442a;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
     }
 
     .intro-bullets li {
-      margin-left: 18px;
+      margin-left: 20px;
       margin-bottom: 4px;
     }
 
     .intro-label {
       font-size: 11px;
       text-transform: uppercase;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.08em;
       color: #a18c64;
       margin-bottom: 4px;
     }
 
     .code-input {
       width: 100%;
-      border-radius: 14px;
+      border-radius: 18px;
       border: 1px solid #e0d3bc;
-      padding: 8px 10px;
-      font-size: 14px;
+      padding: 12px 14px;
+      font-size: 22px;
       background: #fffef8;
       outline: none;
       text-align: center;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.24em;
       text-transform: uppercase;
+      font-variant-numeric: tabular-nums;
     }
 
     .code-input:focus {
       border-color: #e3b340;
       box-shadow: 0 0 0 1px #ffe09a;
+      background: #ffffff;
     }
 
     .code-hint {
-      font-size: 11px;
+      font-size: 13px;
       color: #a18c64;
-      margin-top: 4px;
-      margin-bottom: 10px;
+      margin-top: 6px;
+      margin-bottom: 8px;
+    }
+
+    .code-explain {
+      font-size: 13px;
+      color: #7e6b4a;
+      margin-bottom: 8px;
     }
 
     .code-error {
-      font-size: 11px;
+      font-size: 13px;
       color: #c03b3b;
-      min-height: 14px;
+      min-height: 16px;
       margin-bottom: 8px;
     }
 
@@ -699,48 +755,83 @@
       justify-content: space-between;
       align-items: center;
       gap: 8px;
+      margin-top: 6px;
     }
 
     .intro-small {
-      font-size: 10px;
+      font-size: 12px;
       color: #9c8c6d;
     }
 
-    /* Desktop tweaks */
-    @media (min-width: 900px) {
+    .lang-switch {
+      display: inline-flex;
+      gap: 8px;
+    }
+
+    .lang-btn {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      border: 1px solid #e0d3bc;
+      background: #fff7e4;
+      font-size: 18px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+      transition: transform 0.1s, box-shadow 0.1s, border-color 0.1s;
+    }
+
+    .lang-btn.active {
+      border-color: #e3b340;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.18);
+      transform: translateY(-1px);
+    }
+
+    @media (max-width: 768px) {
       body {
-        justify-content: center;
-        align-items: flex-start;
-        padding: 40px 24px;
+        padding: 12px 4px;
+        align-items: center;
+        background: #e5e5ea;
+        font-size: 15px;
       }
 
       .phone-frame {
-        max-width: 960px;
-        height: 80vh;
-        border-radius: 28px;
-        padding: 12px;
-        box-shadow: 0 16px 32px rgba(0, 0, 0, 0.18);
+        max-width: 420px;
+        height: min(800px, 92vh);
+        border-radius: 40px;
+        padding: 16px;
       }
 
       .inner-screen {
-        border-radius: 20px;
-        padding: 16px 16px 18px;
+        border-radius: 28px;
+        padding: 12px 12px 16px;
       }
 
-      .content {
-        padding: 8px 8px 0;
+      .title {
+        font-size: 24px;
       }
 
       .section-title {
-        font-size: 16px;
+        font-size: 18px;
       }
 
-      .card,
-      .calendar-wrapper,
-      .idea-form,
-      .idea-card,
-      .summary-card {
-        border-radius: 18px;
+      .tabs {
+        max-width: 260px;
+      }
+
+      .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .header-actions {
+        align-self: flex-end;
+      }
+
+      .intro-card {
+        padding: 20px 18px 18px;
       }
     }
 
@@ -782,69 +873,95 @@
   <!-- Intro / Passcode overlay -->
   <div id="intro-overlay" class="intro-overlay">
     <div class="intro-card">
-      <div class="intro-title">BackLog</div>
-      <div class="intro-subtitle">
-        A tiny notebook for your back pain — see patterns, not just bad days.
+      <div class="intro-header-row">
+        <div>
+          <div class="intro-title" data-i18n="intro_title">BackLog</div>
+        </div>
+        <div class="lang-switch">
+          <button class="lang-btn active" data-lang="en">🇺🇸</button>
+          <button class="lang-btn" data-lang="ko">🇰🇷</button>
+        </div>
       </div>
-      <ul class="intro-bullets">
-        <li>Log symptoms, treatments, and feelings in seconds.</li>
-        <li>See pain colors on a calendar and weekly trends.</li>
-        <li>Enter a shared code to see the same space on any device.</li>
+
+      <div class="intro-subtitle" data-i18n="intro_subtitle">
+        A tiny notebook for your back.
+      </div>
+
+      <ul class="intro-bullets" id="intro-bullets">
+        <!-- Filled by JS per language -->
       </ul>
 
-      <div class="intro-label">Access code</div>
+      <div class="code-explain" data-i18n="intro_explain">
+        Pick any access code. Anyone with the same code sees the same log.
+      </div>
+
+      <div class="intro-label" data-i18n="intro_label_access">Access code</div>
       <input
         id="code-input"
         class="code-input"
         maxlength="7"
         placeholder="1234ABC"
+        data-i18n-placeholder="code_placeholder"
       />
-      <div class="code-hint">
-        4 numbers + 3 letters (e.g. 2025BPK). Anyone with this code sees this log.
+      <div
+        class="code-hint"
+        id="code-hint"
+        data-i18n="intro_hint"
+      >
+        4 digits + 3 letters (e.g. 2025BPK).
       </div>
       <div id="code-error" class="code-error"></div>
 
       <div class="intro-footer">
-        <div class="intro-small">
-          No sign up, no email. Just remember your code.
+        <div class="intro-small" data-i18n="intro_small">
+          No account. Just remember your code.
         </div>
-        <button id="btn-enter-app" class="btn-primary">Enter</button>
+        <button
+          id="btn-enter-app"
+          class="btn-primary"
+          data-i18n="intro_button_enter"
+        >
+          Enter
+        </button>
       </div>
     </div>
   </div>
 
   <div class="phone-frame">
     <div class="inner-screen">
-      <div class="top-bar no-print">
+      <div class="top-bar">
         <div>
           <div class="title">BackLog</div>
-          <div class="subtitle">Know your pain</div>
+          <div class="subtitle" data-i18n="app_subtitle">Know your pain</div>
           <div id="code-tag" class="code-tag" style="display:none;">
             Code: ----
           </div>
         </div>
       </div>
 
-      <!-- Tabs -->
-      <div class="tabs no-print">
-        <div class="tab active" data-tab="entries">Entries</div>
-        <div class="tab" data-tab="calendar">Calendar</div>
-        <div class="tab" data-tab="ideas">Ideas</div>
+      <div class="section-header main-header">
+        <div class="tabs">
+          <div class="tab active" data-tab="entries" title="Entries">✏️</div>
+          <div class="tab" data-tab="calendar" title="Calendar">📅</div>
+          <div class="tab" data-tab="ideas" title="Ideas">💡</div>
+        </div>
+
+        <div class="header-actions no-print" id="entries-header-actions">
+          <button id="btn-add-entry" class="btn-primary">+</button>
+        </div>
       </div>
 
-      <!-- Content -->
       <div class="content">
         <!-- Entries Tab -->
         <div id="tab-entries" class="tab-panel">
           <div class="section-header">
             <div>
-              <div class="section-title">All Entries</div>
-              <div class="section-subtitle">Daily logs in BackLog</div>
-            </div>
-            <div class="header-actions no-print">
-              <button id="btn-export" class="btn-icon" title="Export as text file">TXT</button>
-              <button id="btn-print" class="btn-icon" title="Print / Save as PDF">PDF</button>
-              <button id="btn-add-entry" class="btn-primary">＋</button>
+              <div class="section-title" data-i18n="entries_title">
+                All Entries
+              </div>
+              <div class="section-subtitle" data-i18n="entries_subtitle">
+                Your daily BackLog
+              </div>
             </div>
           </div>
           <div id="entries-list"></div>
@@ -853,9 +970,21 @@
           <div id="summary-section">
             <div class="section-header">
               <div>
-                <div class="section-title">Summary for doctors</div>
-                <div class="section-subtitle">Weekly pain trend overview</div>
+                <div class="section-title" data-i18n="summary_title">
+                  Weekly summary
+                </div>
+                <div class="section-subtitle" data-i18n="summary_subtitle">
+                  Patterns you can share with your doctor
+                </div>
               </div>
+              <!-- Export icon here -->
+              <button id="btn-export" class="btn-icon" title="Download text file">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 3v11" stroke="#444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                  <path d="M8 10l4 4 4-4" stroke="#444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                  <path d="M5 14h14v4a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-4z" fill="#444"/>
+                </svg>
+              </button>
             </div>
             <div id="summary-container"></div>
           </div>
@@ -865,10 +994,20 @@
         <div id="tab-calendar" class="tab-panel" style="display: none;">
           <div class="section-header">
             <div>
-              <div class="section-title">Calendar View</div>
-              <div class="section-subtitle">Tap a day to view or add</div>
+              <div class="section-title" data-i18n="calendar_title">
+                Calendar View
+              </div>
+              <div class="section-subtitle" data-i18n="calendar_subtitle">
+                Tap a day to view or add
+              </div>
             </div>
-            <button class="btn-ghost no-print" id="btn-today">Today</button>
+            <button
+              class="btn-ghost no-print"
+              id="btn-today"
+              data-i18n="btn_today"
+            >
+              Today
+            </button>
           </div>
 
           <div class="calendar-wrapper">
@@ -882,13 +1021,16 @@
 
             <div class="calendar-legend">
               <div class="legend-item">
-                <span class="legend-color" style="background: var(--red);"></span> Bad
+                <span class="legend-color" style="background: #fecaca;"></span>
+                <span data-i18n="legend_bad">Bad</span>
               </div>
               <div class="legend-item">
-                <span class="legend-color" style="background: var(--yellow);"></span> Meh
+                <span class="legend-color" style="background: #fde68a;"></span>
+                <span data-i18n="legend_meh">Meh</span>
               </div>
               <div class="legend-item">
-                <span class="legend-color" style="background: var(--green);"></span> Good
+                <span class="legend-color" style="background: #bbf7d0;"></span>
+                <span data-i18n="legend_good">Good</span>
               </div>
             </div>
           </div>
@@ -903,24 +1045,53 @@
         <div id="tab-ideas" class="tab-panel" style="display: none;">
           <div class="section-header">
             <div>
-              <div class="section-title">Ideas for Recovery</div>
-              <div class="section-subtitle">Doctors, stretches, procedures…</div>
+              <div class="section-title" data-i18n="ideas_title">
+                Ideas for Recovery
+              </div>
+              <div class="section-subtitle" data-i18n="ideas_subtitle">
+                Doctors, stretches, procedures…
+              </div>
             </div>
           </div>
 
           <div class="ideas-wrapper">
             <div class="idea-form no-print">
               <div class="idea-form-row">
-                <div class="field-label">Idea Title</div>
-                <input id="idea-title-input" class="idea-input" />
+                <div class="section-subtitle" data-i18n="ideas_label_title">
+                  Idea title
+                </div>
+                <input
+                  id="idea-title-input"
+                  class="idea-input"
+                  data-i18n-placeholder="ideas_title_placeholder"
+                />
               </div>
               <div class="idea-form-row">
-                <div class="field-label">Details</div>
-                <textarea id="idea-body-input" class="idea-textarea"></textarea>
+                <div class="section-subtitle" data-i18n="ideas_label_details">
+                  Details
+                </div>
+                <textarea
+                  id="idea-body-input"
+                  class="idea-textarea"
+                  data-i18n-placeholder="ideas_body_placeholder"
+                ></textarea>
               </div>
               <div class="idea-form-actions">
-                <button id="btn-add-idea" class="btn-primary">Save Idea</button>
-                <button id="btn-delete-idea" class="btn-small btn-small-danger" style="display:none;">🗑 Delete</button>
+                <button
+                  id="btn-add-idea"
+                  class="btn-primary"
+                  data-i18n="btn_save_idea"
+                >
+                  Save Idea
+                </button>
+                <button
+                  id="btn-delete-idea"
+                  class="btn-small btn-small-danger"
+                  style="display:none;"
+                  data-i18n="btn_delete_idea"
+                >
+                  🗑 Delete
+                </button>
               </div>
             </div>
 
@@ -931,52 +1102,134 @@
         <div class="bottom-safe no-print"></div>
       </div>
 
-      <!-- Entry Sheet (Add/Edit Entry) -->
+      <!-- Entry Sheet -->
       <div id="entry-sheet-backdrop" class="entry-sheet-backdrop no-print">
         <div class="entry-sheet">
           <div class="entry-sheet-header">
-            <button id="btn-cancel-entry" class="btn-ghost">Cancel</button>
-            <div class="entry-sheet-title" id="entry-sheet-title">New Entry</div>
+            <button
+              id="btn-cancel-entry"
+              class="btn-ghost"
+              data-i18n="btn_cancel_entry"
+            >
+              Cancel
+            </button>
+            <div
+              class="entry-sheet-title"
+              id="entry-sheet-title"
+              data-i18n="entry_sheet_new"
+            >
+              New Entry
+            </div>
             <div class="entry-sheet-actions">
-              <button id="btn-save-entry" class="btn-primary">Save</button>
+              <button
+                id="btn-save-entry"
+                class="btn-primary"
+                data-i18n="btn_save_entry"
+              >
+                Save
+              </button>
             </div>
           </div>
 
-          <div class="section-subtitle" style="margin-bottom: 6px;">
+          <div
+            class="section-subtitle"
+            style="margin-bottom: 6px;"
+            data-i18n="entry_sheet_hint"
+          >
             Fill this out at the end of your day.
           </div>
 
           <div class="entry-form-row">
-            <div class="field-label">Date</div>
+            <div class="section-subtitle" data-i18n="entry_label_date">Date</div>
             <input type="date" id="entry-date-input" class="entry-input" />
           </div>
 
           <div class="entry-form-row">
-            <div class="field-label">Activity / Symptom</div>
-            <textarea id="entry-activity-input" class="entry-textarea"></textarea>
+            <div
+              class="section-subtitle"
+              data-i18n="entry_label_activity"
+            >
+              Activity / Symptom
+            </div>
+            <textarea
+              id="entry-activity-input"
+              class="entry-textarea"
+              data-i18n-placeholder="entry_activity_placeholder"
+            ></textarea>
           </div>
 
           <div class="entry-form-row">
-            <div class="field-label">Treatment / Meds</div>
-            <textarea id="entry-treatment-input" class="entry-textarea"></textarea>
+            <div
+              class="section-subtitle"
+              data-i18n="entry_label_treatment"
+            >
+              Treatment / Meds
+            </div>
+            <textarea
+              id="entry-treatment-input"
+              class="entry-textarea"
+              data-i18n-placeholder="entry_treatment_placeholder"
+            ></textarea>
           </div>
 
           <div class="entry-form-row">
-            <div class="field-label">Feeling / Reflection</div>
-            <textarea id="entry-feeling-input" class="entry-textarea"></textarea>
+            <div
+              class="section-subtitle"
+              data-i18n="entry_label_feeling"
+            >
+              Feeling / Reflection
+            </div>
+            <textarea
+              id="entry-feeling-input"
+              class="entry-textarea"
+              data-i18n-placeholder="entry_feeling_placeholder"
+            ></textarea>
           </div>
 
           <div class="entry-form-row">
-            <div class="field-label">Overall Pain</div>
+            <div
+              class="section-subtitle"
+              data-i18n="entry_label_pain"
+            >
+              Overall Pain
+            </div>
             <div class="pain-options" id="pain-options">
-              <div class="pain-option" data-pain="bad">Bad</div>
-              <div class="pain-option" data-pain="meh">Meh</div>
-              <div class="pain-option" data-pain="good">Good</div>
+              <div
+                class="pain-option"
+                data-pain="bad"
+                data-i18n="pain_bad"
+              >
+                Bad
+              </div>
+              <div
+                class="pain-option"
+                data-pain="meh"
+                data-i18n="pain_meh"
+              >
+                Meh
+              </div>
+              <div
+                class="pain-option"
+                data-pain="good"
+                data-i18n="pain_good"
+              >
+                Good
+              </div>
             </div>
           </div>
 
-          <div class="entry-form-row no-print" id="entry-delete-row" style="display:none; margin-top:10px;">
-            <button id="btn-delete-entry" class="btn-small btn-small-danger">🗑 Delete entry</button>
+          <div
+            class="entry-form-row no-print"
+            id="entry-delete-row"
+            style="display:none; margin-top:10px;"
+          >
+            <button
+              id="btn-delete-entry"
+              class="btn-small btn-small-danger"
+              data-i18n="btn_delete_entry"
+            >
+              🗑 Delete entry
+            </button>
           </div>
         </div>
       </div>
@@ -1006,6 +1259,201 @@
     let editingIdeaId = null;
     let currentCode = null;
 
+    let currentLang = "en";
+
+    const translations = {
+      en: {
+        intro_title: "BackLog",
+        intro_subtitle: "A tiny notebook for your back.",
+        intro_bullets: [
+          "Log your day in under a minute.",
+          "See your pain as colors on a calendar.",
+          "Share this log with your doctor or AI using a code."
+        ],
+        intro_explain:
+          "Pick any access code. Anyone with the same code sees the same log.",
+        intro_label_access: "Access code",
+        code_placeholder: "1234ABC",
+        intro_hint:
+          "4 digits + 3 letters (e.g. 2025BPK). Use any code you like.",
+        intro_small: "No account. Just remember your code.",
+        intro_button_enter: "Enter",
+        intro_error_format:
+          "Please enter 4 digits + 3 letters (e.g. 1234ABC).",
+        app_subtitle: "Know your pain",
+        entries_title: "All Entries",
+        entries_subtitle: "Your daily BackLog",
+        summary_title: "Weekly summary",
+        summary_subtitle: "Patterns you can share with your doctor",
+        calendar_title: "Calendar View",
+        calendar_subtitle: "Tap a day to view or add",
+        ideas_title: "Ideas for Recovery",
+        ideas_subtitle: "Doctors, stretches, procedures…",
+        ideas_label_title: "Idea title",
+        ideas_label_details: "Details",
+        ideas_title_placeholder: "New doctor, clinic, exercise…",
+        ideas_body_placeholder: "Write any idea that might help your back.",
+        btn_save_idea: "Save Idea",
+        btn_delete_idea: "Delete",
+        btn_cancel_entry: "Cancel",
+        btn_save_entry: "Save",
+        btn_delete_entry: "Delete entry",
+        entry_sheet_new: "New Entry",
+        entry_sheet_edit: "Edit Entry",
+        entry_sheet_hint: "Fill this out at the end of your day.",
+        entry_label_date: "Date",
+        entry_label_activity: "Activity / Symptom",
+        entry_label_treatment: "Treatment / Meds",
+        entry_label_feeling: "Feeling / Reflection",
+        entry_label_pain: "Overall Pain",
+        entry_activity_placeholder: "What did you do? What hurt?",
+        entry_treatment_placeholder: "Meds, stretches, rest, etc.",
+        entry_feeling_placeholder: "How did it feel? Any thoughts?",
+        pain_bad: "Bad",
+        pain_meh: "Meh",
+        pain_good: "Good",
+        legend_bad: "Bad",
+        legend_meh: "Meh",
+        legend_good: "Good",
+        btn_today: "Today",
+        entries_empty:
+          "No entries yet. Tap “+” to add your first note.",
+        summary_empty:
+          "Once you add entries, you’ll see weekly pain patterns here.",
+        ideas_empty:
+          "No ideas yet. Use this space for doctors, stretches, procedures, or anything that might help your back.",
+        day_empty:
+          "No entry for this day yet. Tap the date again to add one.",
+        idea_untitled: "(Untitled idea)",
+        idea_saved_on: "Saved on",
+        export_title: "BackLog export",
+        export_no_entries: "(No entries recorded)",
+        export_no_ideas: "(No ideas saved)",
+        export_entries_header: "=== Entries ===",
+        export_ideas_header: "=== Ideas ===",
+        export_entry: "Entry",
+        export_idea: "Idea",
+        export_date: "Date",
+        export_logged_at: "Logged at",
+        export_overall_pain: "Overall pain",
+        export_activity: "Activity / Symptom",
+        export_treatment: "Treatment / Meds",
+        export_feeling: "Feeling / Reflection",
+        export_title_label: "Title",
+        export_saved_at: "Saved at",
+        export_details: "Details"
+      },
+      ko: {
+        intro_title: "BackLog",
+        intro_subtitle: "허리 일기를 위한 작은 노트.",
+        intro_bullets: [
+          "하루를 1분 안에 기록해요.",
+          "통증 정도를 색깔 달력으로 한눈에 봐요.",
+          "코드만 공유하면 의사나 AI와 같이 볼 수 있어요."
+        ],
+        intro_explain:
+          "접근 코드는 아무 숫자·영문 조합이면 돼요. 같은 코드를 쓰면 같은 일기를 함께 볼 수 있어요.",
+        intro_label_access: "접근 코드",
+        code_placeholder: "1234ABC",
+        intro_hint:
+          "숫자 4자리 + 영문 3자리 (예: 2025BPK). 마음에 드는 코드를 만드세요.",
+        intro_small: "회원가입·로그인 없이, 코드만 기억하면 됩니다.",
+        intro_button_enter: "들어가기",
+        intro_error_format:
+          "숫자 4자리 + 영문 3자리 형식으로 입력해주세요. (예: 1234ABC)",
+        app_subtitle: "통증을 알면 마음이 편해져요",
+        entries_title: "전체 기록",
+        entries_subtitle: "오늘의 허리 일기",
+        summary_title: "주간 요약",
+        summary_subtitle: "의사에게 보여주기 좋은 패턴 정리",
+        calendar_title: "달력 보기",
+        calendar_subtitle: "날짜를 눌러 기록을 보고 추가해요",
+        ideas_title: "허리 회복 아이디어",
+        ideas_subtitle: "병원, 운동, 시술 등 떠오르는 것들",
+        ideas_label_title: "아이디어 제목",
+        ideas_label_details: "내용",
+        ideas_title_placeholder: "새 병원, 운동, 시술 아이디어 등",
+        ideas_body_placeholder: "허리에 도움이 될 것 같은 생각을 적어보세요.",
+        btn_save_idea: "아이디어 저장",
+        btn_delete_idea: "삭제",
+        btn_cancel_entry: "취소",
+        btn_save_entry: "저장",
+        btn_delete_entry: "기록 삭제",
+        entry_sheet_new: "새 기록",
+        entry_sheet_edit: "기록 수정",
+        entry_sheet_hint: "하루를 마무리하면서 간단히 적어주세요.",
+        entry_label_date: "날짜",
+        entry_label_activity: "활동 / 증상",
+        entry_label_treatment: "치료 / 약",
+        entry_label_feeling: "느낌 / 메모",
+        entry_label_pain: "오늘의 통증",
+        entry_activity_placeholder: "무슨 활동을 했고, 어디가 아팠나요?",
+        entry_treatment_placeholder: "복용한 약, 스트레칭, 휴식 등",
+        entry_feeling_placeholder: "오늘 몸 상태와 느낌, 생각들",
+        pain_bad: "심함",
+        pain_meh: "보통",
+        pain_good: "양호",
+        legend_bad: "심함",
+        legend_meh: "보통",
+        legend_good: "양호",
+        btn_today: "오늘",
+        entries_empty:
+          "아직 기록이 없어요. 위쪽 “+” 버튼을 눌러 첫 기록을 남겨보세요.",
+        summary_empty:
+          "기록이 쌓이면 여기에서 주간 통증 패턴을 볼 수 있어요.",
+        ideas_empty:
+          "아직 아이디어가 없어요. 병원, 운동, 시술 등 떠오르는 것을 적어두세요.",
+        day_empty:
+          "이 날짜에는 아직 기록이 없어요. 날짜를 다시 눌러서 기록을 추가해보세요.",
+        idea_untitled: "(제목 없는 아이디어)",
+        idea_saved_on: "저장 시각",
+        export_title: "BackLog 내보내기",
+        export_no_entries: "(저장된 기록이 없습니다.)",
+        export_no_ideas: "(저장된 아이디어가 없습니다.)",
+        export_entries_header: "=== 통증 기록 ===",
+        export_ideas_header: "=== 아이디어 ===",
+        export_entry: "기록",
+        export_idea: "아이디어",
+        export_date: "날짜",
+        export_logged_at: "기록 시간",
+        export_overall_pain: "오늘의 통증",
+        export_activity: "활동 / 증상",
+        export_treatment: "치료 / 약",
+        export_feeling: "느낌 / 메모",
+        export_title_label: "제목",
+        export_saved_at: "저장 시각",
+        export_details: "내용"
+      }
+    };
+
+    function applyTranslations() {
+      const t = translations[currentLang];
+
+      document.querySelectorAll("[data-i18n]").forEach((el) => {
+        const key = el.getAttribute("data-i18n");
+        if (t[key]) el.textContent = t[key];
+      });
+
+      document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
+        const key = el.getAttribute("data-i18n-placeholder");
+        if (t[key]) el.setAttribute("placeholder", t[key]);
+      });
+
+      const bulletsEl = document.getElementById("intro-bullets");
+      if (bulletsEl && Array.isArray(t.intro_bullets)) {
+        bulletsEl.innerHTML = t.intro_bullets
+          .map((line) => `<li>${line}</li>`)
+          .join("");
+      }
+
+      const entrySheetTitle = document.getElementById("entry-sheet-title");
+      if (entrySheetTitle && editingEntryId) {
+        entrySheetTitle.textContent = t.entry_sheet_edit || "Edit Entry";
+      } else if (entrySheetTitle) {
+        entrySheetTitle.textContent = t.entry_sheet_new || "New Entry";
+      }
+    }
+
     function formatDateKey(date) {
       const y = date.getFullYear();
       const m = String(date.getMonth() + 1).padStart(2, "0");
@@ -1030,12 +1478,6 @@
       return d.toLocaleDateString(undefined, opts);
     }
 
-    function formatTimeDisplay(dateObj) {
-      const hrs = String(dateObj.getHours()).padStart(2, "0");
-      const mins = String(dateObj.getMinutes()).padStart(2, "0");
-      return `${hrs}:${mins}`;
-    }
-
     function painToPillClass(pain) {
       if (pain === "bad") return "pill-bad";
       if (pain === "meh") return "pill-meh";
@@ -1044,9 +1486,10 @@
     }
 
     function painToLabel(pain) {
-      if (pain === "bad") return "Bad";
-      if (pain === "meh") return "Meh";
-      if (pain === "good") return "Good";
+      const t = translations[currentLang];
+      if (pain === "bad") return t.pain_bad || "Bad";
+      if (pain === "meh") return t.pain_meh || "Meh";
+      if (pain === "good") return t.pain_good || "Good";
       return "N/A";
     }
 
@@ -1123,14 +1566,38 @@
       closeEntrySheet();
     }
 
+    function makeBulletList(entry) {
+      const bullets = [];
+      if (entry.activity && entry.activity.trim())
+        bullets.push(entry.activity.trim());
+      if (entry.treatment && entry.treatment.trim())
+        bullets.push(entry.treatment.trim());
+      if (entry.feeling && entry.feeling.trim())
+        bullets.push(entry.feeling.trim());
+
+      if (bullets.length === 0) {
+        return "<ul class='bullet-list'><li style='color:#b0a38b;'>No details recorded</li></ul>";
+      }
+
+      return (
+        "<ul class='bullet-list'>" +
+        bullets.map((text) => `<li>${text}</li>`).join("") +
+        "</ul>"
+      );
+    }
+
     function renderEntries() {
+      const t = translations[currentLang];
       sortEntries();
       const list = document.getElementById("entries-list");
       list.innerHTML = "";
 
       if (entries.length === 0) {
         list.innerHTML =
-          '<div class="empty-state">No entries yet. Tap “＋” to add your first note.</div>';
+          '<div class="empty-state">' +
+          (t.entries_empty ||
+            'No entries yet. Tap “+” to add your first note.') +
+          "</div>";
         renderSummary();
         return;
       }
@@ -1139,7 +1606,6 @@
         const card = document.createElement("div");
         card.className = "card";
 
-        const createdDate = new Date(entry.created_at);
         const header = document.createElement("div");
         header.className = "card-header";
 
@@ -1147,13 +1613,7 @@
         const dateEl = document.createElement("div");
         dateEl.className = "card-date";
         dateEl.textContent = formatDisplayDate(entry.date);
-
-        const timeEl = document.createElement("div");
-        timeEl.className = "card-time";
-        timeEl.textContent = `Logged at ${formatTimeDisplay(createdDate)}`;
-
         left.appendChild(dateEl);
-        left.appendChild(timeEl);
 
         const painPill = document.createElement("div");
         painPill.className = `pill ${painToPillClass(entry.pain)}`;
@@ -1162,28 +1622,12 @@
         header.appendChild(left);
         header.appendChild(painPill);
 
-        const activityRow = document.createElement("div");
-        activityRow.className = "card-row";
-        activityRow.innerHTML =
-          "<span class='field-label'>Activity / Symptom</span>" +
-          `<div class="field-text">${entry.activity || "<span style='color:#aaa'>—</span>"}</div>`;
-
-        const treatmentRow = document.createElement("div");
-        treatmentRow.className = "card-row";
-        treatmentRow.innerHTML =
-          "<span class='field-label'>Treatment / Meds</span>" +
-          `<div class="field-text">${entry.treatment || "<span style='color:#aaa'>—</span>"}</div>`;
-
-        const feelingRow = document.createElement("div");
-        feelingRow.className = "card-row";
-        feelingRow.innerHTML =
-          "<span class='field-label'>Feeling / Reflection</span>" +
-          `<div class="field-text">${entry.feeling || "<span style='color:#aaa'>—</span>"}</div>`;
+        const row = document.createElement("div");
+        row.className = "card-row";
+        row.innerHTML = makeBulletList(entry);
 
         card.appendChild(header);
-        card.appendChild(activityRow);
-        card.appendChild(treatmentRow);
-        card.appendChild(feelingRow);
+        card.appendChild(row);
 
         card.addEventListener("click", () => {
           startEditEntry(entry);
@@ -1203,7 +1647,7 @@
       const firstDayOfMonth = new Date(currentYear, currentMonth, 1);
       const monthName = firstDayOfMonth.toLocaleDateString(undefined, {
         month: "long",
-        year: "numeric",
+        year: "numeric"
       });
       monthLabel.textContent = monthName;
 
@@ -1244,7 +1688,6 @@
         }
 
         const num = document.createElement("div");
-        num.className = "date-number";
         num.textContent = day;
         cell.appendChild(num);
 
@@ -1264,6 +1707,7 @@
     }
 
     function renderDayDetails() {
+      const t = translations[currentLang];
       const container = document.getElementById("day-details-container");
       const title = document.getElementById("day-details-title");
       title.textContent = formatDisplayDate(selectedDate);
@@ -1273,7 +1717,10 @@
 
       if (todays.length === 0) {
         container.innerHTML =
-          '<div class="day-details-empty">No entry for this day yet. Tap the date again to add one.</div>';
+          '<div class="day-details-empty">' +
+          (t.day_empty ||
+            "No entry for this day yet. Tap the date again to add one.") +
+          "</div>";
         return;
       }
 
@@ -1291,28 +1738,12 @@
           painPill.textContent = painToLabel(entry.pain);
           header.appendChild(painPill);
 
-          const activityRow = document.createElement("div");
-          activityRow.className = "card-row";
-          activityRow.innerHTML =
-            "<span class='field-label'>Activity / Symptom</span>" +
-            `<div class="field-text">${entry.activity || "<span style='color:#aaa'>—</span>"}</div>`;
-
-          const treatmentRow = document.createElement("div");
-          treatmentRow.className = "card-row";
-          treatmentRow.innerHTML =
-            "<span class='field-label'>Treatment / Meds</span>" +
-            `<div class="field-text">${entry.treatment || "<span style='color:#aaa'>—</span>"}</div>`;
-
-          const feelingRow = document.createElement("div");
-          feelingRow.className = "card-row";
-          feelingRow.innerHTML =
-            "<span class='field-label'>Feeling / Reflection</span>" +
-            `<div class="field-text">${entry.feeling || "<span style='color:#aaa'>—</span>"}</div>`;
+          const row = document.createElement("div");
+          row.className = "card-row";
+          row.innerHTML = makeBulletList(entry);
 
           card.appendChild(header);
-          card.appendChild(activityRow);
-          card.appendChild(treatmentRow);
-          card.appendChild(feelingRow);
+          card.appendChild(row);
 
           card.addEventListener("click", () => {
             startEditEntry(entry);
@@ -1323,12 +1754,16 @@
     }
 
     function renderIdeas() {
+      const t = translations[currentLang];
       const list = document.getElementById("ideas-list");
       list.innerHTML = "";
 
       if (ideas.length === 0) {
         list.innerHTML =
-          '<div class="empty-state">No ideas yet. Use this space for doctors, stretches, procedures, or anything that might help your back.</div>';
+          '<div class="empty-state">' +
+          (t.ideas_empty ||
+            "No ideas yet. Use this space for doctors, stretches, procedures, or anything that might help your back.") +
+          "</div>";
         return;
       }
 
@@ -1342,7 +1777,8 @@
 
         const title = document.createElement("div");
         title.className = "idea-title";
-        title.textContent = idea.title || "(Untitled idea)";
+        title.textContent =
+          idea.title || t.idea_untitled || "(Untitled idea)";
 
         const body = document.createElement("div");
         body.className = "idea-body";
@@ -1352,7 +1788,10 @@
         meta.className = "idea-meta";
 
         const created = new Date(idea.created_at);
-        meta.textContent = `Saved on ${created.toLocaleString()}`;
+        meta.textContent =
+          (t.idea_saved_on || "Saved on") +
+          " " +
+          created.toLocaleString();
 
         card.appendChild(title);
         card.appendChild(body);
@@ -1369,7 +1808,7 @@
     function getWeekStartKey(dateKey) {
       const d = parseDateFromKey(dateKey);
       const day = d.getDay();
-      const diff = (day + 6) % 7; // Monday start
+      const diff = (day + 6) % 7;
       d.setDate(d.getDate() - diff);
       return formatDateKey(d);
     }
@@ -1381,12 +1820,16 @@
     }
 
     function renderSummary() {
+      const t = translations[currentLang];
       const container = document.getElementById("summary-container");
       container.innerHTML = "";
 
       if (entries.length === 0) {
         container.innerHTML =
-          '<div class="empty-state">Once you add entries, you’ll see weekly pain patterns here for your doctor.</div>';
+          '<div class="empty-state">' +
+          (t.summary_empty ||
+            "Once you add entries, you’ll see weekly pain patterns here.") +
+          "</div>";
         return;
       }
 
@@ -1399,7 +1842,7 @@
             meh: 0,
             good: 0,
             total: 0,
-            scoreSum: 0,
+            scoreSum: 0
           };
         }
         if (e.pain === "bad") weeks[wk].bad++;
@@ -1414,7 +1857,6 @@
       weekKeys.forEach((wkKey) => {
         const data = weeks[wkKey];
         const avg = data.scoreSum / Math.max(data.total, 1);
-        const desc = describeAverageScore(avg);
 
         const weekStart = wkKey;
         const weekStartDate = parseDateFromKey(weekStart);
@@ -1433,7 +1875,7 @@
         const left = document.createElement("div");
         left.textContent = `Week of ${formatDisplayDateShort(weekStart)}`;
         const right = document.createElement("div");
-        right.textContent = desc;
+        right.textContent = describeAverageScore(avg);
         titleLine.appendChild(left);
         titleLine.appendChild(right);
 
@@ -1470,26 +1912,38 @@
         t.classList.toggle("active", t.dataset.tab === tabName)
       );
       panels.forEach((p) => {
-        p.style.display =
-          p.id === `tab-${tabName}` ? "block" : "none";
+        p.style.display = p.id === `tab-${tabName}` ? "block" : "none";
       });
 
       if (tabName === "calendar") {
+        document.getElementById(
+          "entries-header-actions"
+        ).style.visibility = "hidden";
         renderCalendar();
         renderDayDetails();
+      } else if (tabName === "entries") {
+        document.getElementById(
+          "entries-header-actions"
+        ).style.visibility = "visible";
+      } else {
+        document.getElementById(
+          "entries-header-actions"
+        ).style.visibility = "hidden";
       }
     }
 
     function openEntrySheetForNew(dateOverride) {
       editingEntryId = null;
       const backdrop = document.getElementById("entry-sheet-backdrop");
+      const t = translations[currentLang];
       const title = document.getElementById("entry-sheet-title");
-      title.textContent = "New Entry";
+      title.textContent = t.entry_sheet_new || "New Entry";
 
       backdrop.classList.add("active");
 
       const dateInput = document.getElementById("entry-date-input");
-      dateInput.value = dateOverride || selectedDate || formatDateKey(new Date());
+      dateInput.value =
+        dateOverride || selectedDate || formatDateKey(new Date());
 
       document.getElementById("entry-activity-input").value = "";
       document.getElementById("entry-treatment-input").value = "";
@@ -1503,15 +1957,19 @@
     function startEditEntry(entry) {
       editingEntryId = entry.id;
       const backdrop = document.getElementById("entry-sheet-backdrop");
+      const t = translations[currentLang];
       const title = document.getElementById("entry-sheet-title");
-      title.textContent = "Edit Entry";
+      title.textContent = t.entry_sheet_edit || "Edit Entry";
 
       backdrop.classList.add("active");
 
       document.getElementById("entry-date-input").value = entry.date;
-      document.getElementById("entry-activity-input").value = entry.activity || "";
-      document.getElementById("entry-treatment-input").value = entry.treatment || "";
-      document.getElementById("entry-feeling-input").value = entry.feeling || "";
+      document.getElementById("entry-activity-input").value =
+        entry.activity || "";
+      document.getElementById("entry-treatment-input").value =
+        entry.treatment || "";
+      document.getElementById("entry-feeling-input").value =
+        entry.feeling || "";
 
       setPainSelection(entry.pain || null);
 
@@ -1524,6 +1982,7 @@
       editingEntryId = null;
       setPainSelection(null);
       document.getElementById("entry-delete-row").style.display = "none";
+      applyTranslations();
     }
 
     function setPainSelection(pain) {
@@ -1535,6 +1994,7 @@
     }
 
     async function handleSaveEntry() {
+      const t = translations[currentLang];
       const date =
         document.getElementById("entry-date-input").value ||
         formatDateKey(new Date());
@@ -1551,7 +2011,11 @@
       const pain = selectedPain || "meh";
 
       if (!currentCode || !supabaseClient) {
-        alert("Please enter an access code first.");
+        alert(
+          currentLang === "ko"
+            ? "먼저 접근 코드를 입력해주세요."
+            : "Please enter an access code first."
+        );
         return;
       }
 
@@ -1563,7 +2027,7 @@
             activity,
             treatment,
             feeling,
-            pain,
+            pain
           })
           .eq("id", editingEntryId)
           .eq("code", currentCode)
@@ -1572,7 +2036,9 @@
 
         if (error) {
           console.error("Update entry error:", error);
-          alert("Failed to update entry: " + (error.message || "Unknown error"));
+          alert(
+            "Failed to update entry: " + (error.message || "Unknown error")
+          );
           return;
         }
 
@@ -1592,15 +2058,17 @@
               treatment,
               feeling,
               pain,
-              created_at: nowIso,
-            },
+              created_at: nowIso
+            }
           ])
           .select()
           .single();
 
         if (error) {
           console.error("Insert entry error:", error);
-          alert("Failed to save entry: " + (error.message || "Unknown error"));
+          alert(
+            "Failed to save entry: " + (error.message || "Unknown error")
+          );
           return;
         }
 
@@ -1626,7 +2094,8 @@
       titleInput.value = "";
       bodyInput.value = "";
       editingIdeaId = null;
-      saveBtn.textContent = "Save Idea";
+      saveBtn.textContent =
+        translations[currentLang].btn_save_idea || "Save Idea";
       delBtn.style.display = "none";
     }
 
@@ -1635,11 +2104,12 @@
       const bodyInput = document.getElementById("idea-body-input");
       const saveBtn = document.getElementById("btn-add-idea");
       const delBtn = document.getElementById("btn-delete-idea");
+      const t = translations[currentLang];
 
       editingIdeaId = idea.id;
       titleInput.value = idea.title || "";
       bodyInput.value = idea.body || "";
-      saveBtn.textContent = "Update Idea";
+      saveBtn.textContent = t.btn_save_idea || "Save Idea";
       delBtn.style.display = "inline-flex";
 
       const content = document.querySelector(".content");
@@ -1649,7 +2119,14 @@
     }
 
     async function deleteIdea(id) {
-      if (!confirm("Delete this idea?")) return;
+      if (
+        !confirm(
+          currentLang === "ko"
+            ? "이 아이디어를 삭제할까요?"
+            : "Delete this idea?"
+        )
+      )
+        return;
       if (!supabaseClient) return;
 
       const { error } = await supabaseClient
@@ -1672,12 +2149,17 @@
     async function handleSaveIdea() {
       const titleInput = document.getElementById("idea-title-input");
       const bodyInput = document.getElementById("idea-body-input");
+      const t = translations[currentLang];
 
       const title = titleInput.value.trim();
       const body = bodyInput.value.trim();
 
       if (!currentCode || !supabaseClient) {
-        alert("Please enter an access code first.");
+        alert(
+          currentLang === "ko"
+            ? "먼저 접근 코드를 입력해주세요."
+            : "Please enter an access code first."
+        );
         return;
       }
 
@@ -1691,7 +2173,7 @@
           .from("ideas")
           .update({
             title,
-            body,
+            body
           })
           .eq("id", editingIdeaId)
           .eq("code", currentCode)
@@ -1700,7 +2182,9 @@
 
         if (error) {
           console.error("Update idea error:", error);
-          alert("Failed to update idea: " + (error.message || "Unknown error"));
+          alert(
+            "Failed to update idea: " + (error.message || "Unknown error")
+          );
           return;
         }
 
@@ -1715,15 +2199,17 @@
               code: currentCode,
               title,
               body,
-              created_at: nowIso,
-            },
+              created_at: nowIso
+            }
           ])
           .select()
           .single();
 
         if (error) {
           console.error("Insert idea error:", error);
-          alert("Failed to save idea: " + (error.message || "Unknown error"));
+          alert(
+            "Failed to save idea: " + (error.message || "Unknown error")
+          );
           return;
         }
 
@@ -1735,53 +2221,70 @@
     }
 
     function exportDataAsText() {
+      const t = translations[currentLang];
       sortEntries();
 
       const now = new Date();
       const lines = [];
 
-      lines.push("BackLog export");
+      lines.push(t.export_title || "BackLog export");
       lines.push(`Access code: ${currentCode || "(none)"}`);
       lines.push(`Generated at: ${now.toLocaleString()}`);
       lines.push("");
-      lines.push("=== Entries ===");
+      lines.push(t.export_entries_header || "=== Entries ===");
       lines.push("");
 
       if (entries.length === 0) {
-        lines.push("(No entries recorded)");
+        lines.push(t.export_no_entries || "(No entries recorded)");
       } else {
         entries.forEach((e, index) => {
           const created = new Date(e.created_at);
-          lines.push(`Entry #${index + 1}`);
-          lines.push(`  Date: ${e.date} (${formatDisplayDate(e.date)})`);
-          lines.push(`  Logged at: ${formatTimeDisplay(created)}`);
-          lines.push(`  Overall pain: ${painToLabel(e.pain)}`);
-          lines.push(`  Activity / Symptom:`);
+          lines.push(`${t.export_entry || "Entry"} #${index + 1}`);
+          lines.push(
+            `  ${t.export_date || "Date"}: ${e.date} (${formatDisplayDate(
+              e.date
+            )})`
+          );
+          lines.push(
+            `  ${t.export_logged_at || "Logged at"}: ${created.toLocaleString()}`
+          );
+          lines.push(
+            `  ${t.export_overall_pain || "Overall pain"}: ${painToLabel(
+              e.pain
+            )}`
+          );
+          lines.push(`  ${t.export_activity || "Activity / Symptom"}:`);
           lines.push(`    ${e.activity || "-"}`);
-          lines.push(`  Treatment / Meds:`);
+          lines.push(`  ${t.export_treatment || "Treatment / Meds"}:`);
           lines.push(`    ${e.treatment || "-"}`);
-          lines.push(`  Feeling / Reflection:`);
+          lines.push(`  ${t.export_feeling || "Feeling / Reflection"}:`);
           lines.push(`    ${e.feeling || "-"}`);
           lines.push("");
         });
       }
 
       lines.push("");
-      lines.push("=== Ideas ===");
+      lines.push(t.export_ideas_header || "=== Ideas ===");
       lines.push("");
 
       if (ideas.length === 0) {
-        lines.push("(No ideas saved)");
+        lines.push(t.export_no_ideas || "(No ideas saved)");
       } else {
         ideas
           .slice()
           .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
           .forEach((idea, idx) => {
             const created = new Date(idea.created_at);
-            lines.push(`Idea #${idx + 1}`);
-            lines.push(`  Title: ${idea.title || "(Untitled idea)"}`);
-            lines.push(`  Saved at: ${created.toLocaleString()}`);
-            lines.push(`  Details:`);
+            lines.push(`${t.export_idea || "Idea"} #${idx + 1}`);
+            lines.push(
+              `  ${t.export_title_label || "Title"}: ${
+                idea.title || t.idea_untitled || "(Untitled idea)"
+              }`
+            );
+            lines.push(
+              `  ${t.export_saved_at || "Saved at"}: ${created.toLocaleString()}`
+            );
+            lines.push(`  ${t.export_details || "Details"}:`);
             (idea.body || "-")
               .split("\n")
               .forEach((line) => lines.push(`    ${line}`));
@@ -1790,7 +2293,7 @@
       }
 
       const blob = new Blob([lines.join("\n")], {
-        type: "text/plain;charset=utf-8",
+        type: "text/plain;charset=utf-8"
       });
 
       const url = URL.createObjectURL(blob);
@@ -1831,6 +2334,7 @@
     async function handleEnterCode() {
       const input = document.getElementById("code-input");
       const errorEl = document.getElementById("code-error");
+      const t = translations[currentLang];
       let raw = (input.value || "").trim();
       raw = raw.replace(/\s+/g, "");
       const normalized = raw.toUpperCase();
@@ -1838,6 +2342,7 @@
 
       if (!valid) {
         errorEl.textContent =
+          t.intro_error_format ||
           "Please enter 4 digits + 3 letters (e.g. 1234ABC).";
         return;
       }
@@ -1856,6 +2361,19 @@
         SUPABASE_URL,
         SUPABASE_ANON_KEY
       );
+
+      // Language buttons
+      const langButtons = document.querySelectorAll(".lang-btn");
+      langButtons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          langButtons.forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+          currentLang = btn.getAttribute("data-lang") || "en";
+          applyTranslations();
+        });
+      });
+
+      applyTranslations();
 
       const tabButtons = document.querySelectorAll(".tab");
       tabButtons.forEach((btn) => {
@@ -1907,10 +2425,6 @@
       document
         .getElementById("btn-export")
         .addEventListener("click", exportDataAsText);
-
-      document
-        .getElementById("btn-print")
-        .addEventListener("click", () => window.print());
 
       const painOpts = document.querySelectorAll(".pain-option");
       painOpts.forEach((opt) => {
