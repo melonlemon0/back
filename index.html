@@ -258,14 +258,6 @@
       color: #3b3121;
     }
 
-    .label {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: var(--text-muted);
-      margin-bottom: 2px;
-    }
-
     .field-label {
       font-size: 10px;
       text-transform: uppercase;
@@ -919,11 +911,11 @@
           <div class="ideas-wrapper">
             <div class="idea-form no-print">
               <div class="idea-form-row">
-                <div class="label">Idea Title</div>
+                <div class="field-label">Idea Title</div>
                 <input id="idea-title-input" class="idea-input" />
               </div>
               <div class="idea-form-row">
-                <div class="label">Details</div>
+                <div class="field-label">Details</div>
                 <textarea id="idea-body-input" class="idea-textarea"></textarea>
               </div>
               <div class="idea-form-actions">
@@ -955,27 +947,27 @@
           </div>
 
           <div class="entry-form-row">
-            <div class="label">Date</div>
+            <div class="field-label">Date</div>
             <input type="date" id="entry-date-input" class="entry-input" />
           </div>
 
           <div class="entry-form-row">
-            <div class="label">Activity / Symptom</div>
+            <div class="field-label">Activity / Symptom</div>
             <textarea id="entry-activity-input" class="entry-textarea"></textarea>
           </div>
 
           <div class="entry-form-row">
-            <div class="label">Treatment / Meds</div>
+            <div class="field-label">Treatment / Meds</div>
             <textarea id="entry-treatment-input" class="entry-textarea"></textarea>
           </div>
 
           <div class="entry-form-row">
-            <div class="label">Feeling / Reflection</div>
+            <div class="field-label">Feeling / Reflection</div>
             <textarea id="entry-feeling-input" class="entry-textarea"></textarea>
           </div>
 
           <div class="entry-form-row">
-            <div class="label">Overall Pain</div>
+            <div class="field-label">Overall Pain</div>
             <div class="pain-options" id="pain-options">
               <div class="pain-option" data-pain="bad">Bad</div>
               <div class="pain-option" data-pain="meh">Meh</div>
@@ -996,9 +988,9 @@
   <script>
     "use strict";
 
-    // Your Supabase project config
     const SUPABASE_URL = "https://upiobealvympxbypfmkc.supabase.co";
-    const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVwaW9iZWFsdnltcHhieXBmbWtjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjMzNzYxNDIsImV4cCI6MjA3ODk1MjE0Mn0.mLvGyy-eMWr-ow2b2USMg7PXKq2EUfK1fyJEsdGThKw";
+    const SUPABASE_ANON_KEY =
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVwaW9iZWFsdnltcHhieXBmbWtjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjMzNzYxNDIsImV4cCI6MjA3ODk1MjE0Mn0.mLvGyy-eMWr-ow2b2USMg7PXKq2EUfK1fyJEsdGThKw";
 
     const PAIN_SCORE = { good: 1, meh: 2, bad: 3 };
 
@@ -1078,7 +1070,7 @@
         .order("created_at", { ascending: false });
 
       if (entriesError) {
-        console.error(entriesError);
+        console.error("Load entries error:", entriesError);
         entries = [];
       } else {
         entries = entriesData || [];
@@ -1091,7 +1083,7 @@
         .order("created_at", { ascending: false });
 
       if (ideasError) {
-        console.error(ideasError);
+        console.error("Load ideas error:", ideasError);
         ideas = [];
       } else {
         ideas = ideasData || [];
@@ -1118,8 +1110,8 @@
         .eq("code", currentCode);
 
       if (error) {
-        console.error(error);
-        alert("Failed to delete entry.");
+        console.error("Delete entry error:", error);
+        alert("Failed to delete entry: " + (error.message || "Unknown error"));
         return;
       }
 
@@ -1340,7 +1332,9 @@
         return;
       }
 
-      const sorted = ideas.slice().sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+      const sorted = ideas
+        .slice()
+        .sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
 
       sorted.forEach((idea) => {
         const card = document.createElement("div");
@@ -1577,8 +1571,8 @@
           .single();
 
         if (error) {
-          console.error(error);
-          alert("Failed to update entry.");
+          console.error("Update entry error:", error);
+          alert("Failed to update entry: " + (error.message || "Unknown error"));
           return;
         }
 
@@ -1587,6 +1581,7 @@
           entries[idx] = data;
         }
       } else {
+        const nowIso = new Date().toISOString();
         const { data, error } = await supabaseClient
           .from("entries")
           .insert([
@@ -1597,14 +1592,15 @@
               treatment,
               feeling,
               pain,
+              created_at: nowIso,
             },
           ])
           .select()
           .single();
 
         if (error) {
-          console.error(error);
-          alert("Failed to save entry.");
+          console.error("Insert entry error:", error);
+          alert("Failed to save entry: " + (error.message || "Unknown error"));
           return;
         }
 
@@ -1663,8 +1659,8 @@
         .eq("code", currentCode);
 
       if (error) {
-        console.error(error);
-        alert("Failed to delete idea.");
+        console.error("Delete idea error:", error);
+        alert("Failed to delete idea: " + (error.message || "Unknown error"));
         return;
       }
 
@@ -1703,14 +1699,15 @@
           .single();
 
         if (error) {
-          console.error(error);
-          alert("Failed to update idea.");
+          console.error("Update idea error:", error);
+          alert("Failed to update idea: " + (error.message || "Unknown error"));
           return;
         }
 
         const idx = ideas.findIndex((i) => i.id === editingIdeaId);
         if (idx !== -1) ideas[idx] = data;
       } else {
+        const nowIso = new Date().toISOString();
         const { data, error } = await supabaseClient
           .from("ideas")
           .insert([
@@ -1718,14 +1715,15 @@
               code: currentCode,
               title,
               body,
+              created_at: nowIso,
             },
           ])
           .select()
           .single();
 
         if (error) {
-          console.error(error);
-          alert("Failed to save idea.");
+          console.error("Insert idea error:", error);
+          alert("Failed to save idea: " + (error.message || "Unknown error"));
           return;
         }
 
@@ -1839,7 +1837,8 @@
       const valid = /^[0-9]{4}[A-Z]{3}$/.test(normalized);
 
       if (!valid) {
-        errorEl.textContent = "Please enter 4 digits + 3 letters (e.g. 1234ABC).";
+        errorEl.textContent =
+          "Please enter 4 digits + 3 letters (e.g. 1234ABC).";
         return;
       }
 
@@ -1853,7 +1852,6 @@
     }
 
     document.addEventListener("DOMContentLoaded", async () => {
-      // init Supabase
       supabaseClient = window.supabase.createClient(
         SUPABASE_URL,
         SUPABASE_ANON_KEY
@@ -1968,17 +1966,15 @@
           }
         });
 
-      document
-        .getElementById("code-tag")
-        .addEventListener("click", () => {
-          const overlay = document.getElementById("intro-overlay");
-          const input = document.getElementById("code-input");
-          const errorEl = document.getElementById("code-error");
+      document.getElementById("code-tag").addEventListener("click", () => {
+        const overlay = document.getElementById("intro-overlay");
+        const input = document.getElementById("code-input");
+        const errorEl = document.getElementById("code-error");
 
-          overlay.style.display = "flex";
-          input.value = currentCode || "";
-          errorEl.textContent = "";
-        });
+        overlay.style.display = "flex";
+        input.value = currentCode || "";
+        errorEl.textContent = "";
+      });
     });
   </script>
 </body>
